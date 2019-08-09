@@ -4,6 +4,7 @@ window.onload = function () {
 	highlight();
 	partyBoxDown();
 	partyBoxUp();
+	replaceWords();
 	};
 
 function colorChange() {
@@ -20,6 +21,7 @@ function fontChange() {
 
 function highlight() {
 	//highlights the paragraphs on load (took me a while to figure this out. There is probably an easier way.)
+	//also, this stopped working and I'm not sure why yet. But it was extra, just for practice.
 	var range = document.createRange();
 	var selection = window.getSelection();
 	range.selectNodeContents(document.getElementById('paragraphs'));
@@ -42,3 +44,7 @@ function partyBoxUp() {
 window.addEventListener("keydown", function(){partyBoxDown()} );
 window.addEventListener("keyup", function(){partyBoxUp()} );
 
+function replaceWords() {
+	//replaces all instances of the word beard with the word puppy. Does this count as a regular expression?
+	document.body.innerHTML = document.body.innerHTML.replace(/beard/g, "puppy");
+}
